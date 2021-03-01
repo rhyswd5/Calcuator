@@ -1,0 +1,150 @@
+//object to define the types and function of all input buttons on the calculator
+let buttons = [
+	{name: '(',
+	function: '(',
+	type: 'number',},
+
+	{name: ')',
+	function: ')',
+	type: 'number',},
+
+	{name: 'AC',
+	function: false,
+	type: 'key',},
+
+	{name: 'C',
+	function: true,
+	type: 'key',},
+
+	{name: 'divide',
+	function: '/',
+	symbol: '÷',
+	type: 'operator',},
+
+	{name: '7',
+	function: 7,
+	type: 'number',},
+
+	{name: '8',
+	function: 8,
+	type: 'number',},
+
+	{name: '9',
+	function: 9,
+	type: 'number',},
+
+	{name: 'times',
+	function: '*',
+	symbol: 'x',
+	type: 'operator',},
+
+	{name: '4',
+	function: 4,
+	type: 'number',},
+
+	{name: '5',
+	function: 5,
+	type: 'number',},
+
+	{name: '6',
+	function: 6,
+	type: 'number',},
+
+	{name: 'minus',
+	function: '-',
+	symbol: '-',
+	type: 'operator',},
+
+	{name: '3',
+	function: 3,
+	type: 'number',},
+
+	{name: '2',
+	function: 2,
+	type: 'number',},
+
+	{name: '1',
+	function: 1,
+	type: 'number',},
+
+	{name: 'plus',
+	function: '+',
+	symbol: '+',
+	type: 'operator',},
+
+	{name: '0',
+	function: 0,
+	type: 'number',},
+
+	{name: '.',
+	function: '.',
+	type: 'number',},
+
+	{name: 'equals',
+	function: '=',
+	type: 'equals',},
+
+]
+
+let typed = []
+let result = []
+
+//function runs when ever an input is given. There are different outcomes for each type of button. When a button is pressed the typed output and result output will be update accordingly
+function calculate(button) {
+	console.log(button.type)
+	if (button.type == 'number') {
+		typed.push(button.function);
+		result.push(button.function);
+		document.querySelector('#outputTyped').innerText= typed.join('');
+	}
+
+	else if (button.type == 'operator') {
+		if (typed[typed.length-1] == '+' || typed[typed.length-1] == '-' || typed[typed.length-1] == 'x' || typed[typed.length-1] == '÷') {
+			typed[typed.length-1] = button.symbol;
+			result[result.length-1] = button.function;
+			document.querySelector('#outputTyped').innerText= typed.join('');
+		}
+
+		else {
+			typed.push(button.symbol);
+			result.push(button.function);
+			document.querySelector('#outputTyped').innerText= typed.join('');
+		}
+	}
+
+	else if (button.type == 'key') {
+		if (button.function == true) {
+			typed.pop();
+			document.querySelector('#outputTyped').innerText= typed.join('');
+
+		}
+
+		else if (button.function == false) {
+			typed = [];
+			result = [];
+			document.querySelector('#outputTyped').innerText= typed.join('');
+			document.querySelector('#outputResult').innerText= typed.join('');
+		}
+	}
+
+	else if (button.type == 'equals') {
+		document.querySelector('#outputResult').innerText = eval(result.join(''));
+		typed = ['Ans'];
+		result = [eval(result.join(''))];
+
+	}
+
+}
+
+//detects which button is pressed and runs the calculate function on it
+input_element = document.querySelector('#input')
+
+input_element.addEventListener('click', press => {
+	const button_pressed = press.target;
+
+	buttons.forEach(button => {
+		if (button.name == button_pressed.id) {
+			calculate(button)
+		}
+	})
+})
