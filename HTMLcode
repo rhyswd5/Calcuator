@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+		
+			<title>Calculator</title>
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<script src="https://kit.fontawesome.com/6da2e14f43.js" crossorigin="anonymous"></script>
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<meta charset="UTF-8">
+			<link rel="stylesheet"
+			href="https://fonts.googleapis.com/css?family=Raleway">
+			<link rel="stylesheet"
+			href="https://fonts.googleapis.com/css?family=Quicksand:wght@300&display=swap'">
+			<link rel="stylesheet"
+			href="https://fonts.googleapis.com/css?family=Montserrat">
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+			<link rel="stylesheet"
+			href="calculator-style.css">
+			
+		</head>
+	
+		<body>
+
+			<header class = 'nav-wrap'>
+				<div id='nav-menu'>
+					<a href='conversion-webpage.html'><div class='menu-item'>Conversion Tool</div></a>
+					<a href='calculator-webpage.html'><div class='menu-item'>Calculator</div></a>
+					<a href='hangman-webpage.html'><div class='menu-item'>Hangman</div></a>
+				</div>
+
+				<div id = 'nav-bar'>
+					<div id = 'nav-title'>Rhys Woodard-Davies</div>
+						
+					<a href='../Portfolio_1.html'>
+						<div class='nav-item'>Home</div>
+					</a>
+					
+					<a href='../Portfolio_1.html#about-me'>
+						<div class='nav-item'>About Me</div>
+
+					<a href='../Portfolio_1.html#projects'>
+						<div class='nav-item'>Projects</div>
+					</a>
+
+					<a href='../Portfolio_1.html#contacts'>
+						<div class='nav-item'>Contact</div>
+					</a>
+
+					<button onclick="show_menu()" id='hamburger'><i id='icon' class="fas fa-bars"></i></button>
+
+				</div>
+
+			</header>
+
+			<h1> Calculator </h1>
+
+			<div id='calculator'>
+				<div id='calculatorWrap'>
+					<div id='output'>
+
+						<div id='outputResult'>
+
+						</div>
+
+						<div id='outputTyped'>
+
+						</div>
+					</div>
+
+					<div id='input'>
+						<button class='button operator' id='('>(</button>
+						<button class='button operator' id=')'>)</button>
+						<button class='button key' id='AC'>AC</button>
+						<button class='button key' id='C'>C</button>
+						<button class='button number' id='7'>7</button>
+						<button class='button number' id='8'>8</button>
+						<button class='button number' id='9'>9</button>
+						<button class='button operator' id='times'>x</button>
+						<button class='button number' id='4'>4</button>
+						<button class='button number' id='5'>5</button>
+						<button class='button number' id='6'>6</button>
+						<button class='button operator' id='divide'>÷</button>
+						<button class='button number' id='1'>1</button>
+						<button class='button number' id='2'>2</button>
+						<button class='button number' id='3'>3</button>
+						<button class='button operator' id='plus'>+</button>
+						<button class='button number' id='0'>0</button>
+						<button class='button number' id='.'>.</button>
+						<button class='button equals' id='equals'>=</button>
+						<button class='button operator' id='minus'>-</button>
+					</div>
+
+				</div>
+
+			</div>
+
+		<script src='calculator-js.js'></script>
+		<script src='../showmenu.js'></script>
+		</body>
+	</html>
